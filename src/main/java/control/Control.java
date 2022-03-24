@@ -8,7 +8,7 @@ import model.Joueur;
 import view.View1;
 
 public class Control {
-private Jeux game =new Jeux(6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef"));
+private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef"));
 	private View1 maquetteView = new View1(this);
 	
 	
@@ -26,7 +26,15 @@ private Jeux game =new Jeux(6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef"));
 		
 	}
 	
+	public void showWinner(String name) {
+		this.maquetteView.alert(name);
+	}
 	
+	
+	public void egaliter() {
+		
+		
+	}
 	
 	
 }

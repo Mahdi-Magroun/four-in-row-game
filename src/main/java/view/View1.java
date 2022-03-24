@@ -1,6 +1,8 @@
 package view;
 
 import control.Control;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -30,6 +32,16 @@ public class View1 {
 
 		
 	}
+	
+	
+	public void alert(String name) {
+		Alert a=new Alert(AlertType.INFORMATION);
+		a.setTitle("Winner");
+		a.setContentText(name+" you are the winner !!!");
+		a.showAndWait();
+	}
+	
+	
 	
 	
 	
