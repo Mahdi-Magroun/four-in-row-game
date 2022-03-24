@@ -41,7 +41,7 @@ public class Jeux {
 	
 	
 	
-	public void play(int colone) {
+	public int  play(int colone) {
 		//verifier si la partie n'est pas fini 
 		
 			if(this.canIPlay==true) {
@@ -52,18 +52,19 @@ public class Jeux {
 			if(result==true) {
 				System.out.println("player : "+this.tabJoueur[this.whoPlay].getName());// be carful out of range
 				this.canIPlay=false;
-				this.controller.showWinner("holllaaaa");
+				return 1;
 			}
 			else if(this.MaquetteRemplit==true) {
 			 // en cas d'egaliter
 				System.out.println("BRAVOOO vous ete fort tout les deux ");
-				this.controller.egaliter();
 				this.canIPlay=false;
+				return 2;
 			}
 			else
 			{
 				// alternate between two user 
 				this.whoPlay=(this.whoPlay==1)? 2 :1;
+				return 0;
 			}
 			
 			}
@@ -71,7 +72,7 @@ public class Jeux {
 			
 			else {
 				System.out.println("la partie et fini");
-		
+				return -1;
 	}
 			
 	}

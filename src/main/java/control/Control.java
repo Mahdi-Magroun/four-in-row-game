@@ -17,14 +17,41 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 		return this.maquetteView.init(maquette);
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void  play(int col,int row) {
 		int row2=this.game.identifierRowWhenColumIsValid(col);
 		System.out.println(row2);
 		int player=this.game.getWhoPlay();
-		this.game.play(col);
-		this.maquetteView.changeButton(col,row2,player);
+		int status=this.game.play(col);
+		if(status==1) {
+			this.maquetteView.changeButton(col,row2,player);
+			this.showWinner("olaa");
+		}
+		else if(status==2) {
+			this.maquetteView.changeButton(col,row2,player);
+			this.egaliter();
+		}
+		else {
+			this.maquetteView.changeButton(col,row2,player);
+		}
+		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public void showWinner(String name) {
 		this.maquetteView.alert(name);
@@ -32,7 +59,7 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 	
 	
 	public void egaliter() {
-		
+		this.maquetteView.showEgaliter();
 		
 	}
 	

@@ -42,6 +42,13 @@ public class View1 {
 	}
 	
 	
+	public void showEgaliter() {
+		Alert a=new Alert(AlertType.INFORMATION);
+		a.setTitle("egaliter");
+		a.setContentText("vous ete fort tout les deux  ");
+		a.showAndWait();
+	}
+	
 	
 	
 	
