@@ -14,11 +14,12 @@ import model.Joueur;
 public class View1 {
 	private Control controller;
 	private GridPane maquette= new GridPane() ;
+	private BorderPane allView=new BorderPane();
 	
 	public View1(Control controller) {
 		this.controller=controller;
 	}
-	public BorderPane init(int[][] maquette) {
+	public void init(int[][] maquette) {
 	//	this.maquette.minHeight(150);
 		//this.maquette.minWidth(150);
 		for(int i=0;i<maquette.length;i++) {
@@ -35,7 +36,7 @@ public class View1 {
 			}
 		}
 		
-		BorderPane bp=new BorderPane();
+		/*BorderPane bp=new BorderPane();
 		bp.setCenter(this.maquette);
 		Joueur j[]=this.controller.getJoueurs();
 		FlowPane flow =new FlowPane();
@@ -49,12 +50,50 @@ public class View1 {
 		bp.setLeft(flow);
 		bp.setRight(flow2);
 		bp.setTop(score);
-		return bp;
+		return bp;*/
 
 		
 	}
 	
+	public BorderPane initGame(int[][] maquette) {
+		this.init(maquette);
+		FlowPane[] joueur=this.setJoueurPanel(this.controller.getJoueurs());
+		Text score = this.getScore();
+		this.allView.setCenter(this.maquette);
+		this.allView.setTop(score);
+		this.allView.setLeft(joueur[0]);
+		this.allView.setRight(joueur[1]);
+		return this.allView;
+		
+		
+		
+		
+	}
 	
+	
+	private Text getScore() {
+		Joueur j[]=this.controller.getJoueurs();
+		Text score= new Text(j[1].getScore()+"-"+j[2].getScore());
+		return score;
+	}
+	
+	public  void setScore() {
+		this.allView.setTop(this.getScore());
+	}
+	private FlowPane[] setJoueurPanel(Joueur[] j) {
+		FlowPane allFlow[]=new FlowPane[2];
+		FlowPane flow =new FlowPane();
+		FlowPane flow2 =new FlowPane();
+		Text j1= new Text(j[1].getName());
+		Text j2= new Text(j[2].getName());
+		flow.getChildren().add(j1);
+		flow2.getChildren().add(j2);
+		allFlow[0]=flow;
+		allFlow[1]=flow2;
+		
+		return allFlow;
+		
+	}
 	public void alert(String name) {
 		Alert a=new Alert(AlertType.INFORMATION);
 		a.setTitle("Winner");

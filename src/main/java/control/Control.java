@@ -14,7 +14,7 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 	
 	public BorderPane intialiserMaquette() {
 		int[][] maquette = this.game.initialiserMaquette();
-		return this.maquetteView.init(maquette);
+		return this.maquetteView.initGame(maquette);
 	}
 	
 	
@@ -66,6 +66,7 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 	
 	public void score(Joueur j) {
 		j.setScore(j.getScore()+1);
+		this.maquetteView.setScore();
 		
 	}
 	
