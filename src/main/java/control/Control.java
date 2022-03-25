@@ -14,7 +14,10 @@ private Jeux game ;
 	
 	public BorderPane intialiserMaquette() {
 		int lengthMaquette=this.maquetteView.getLgMaquette();
-		this.game=new Jeux(this,lengthMaquette,lengthMaquette,new Joueur(1,"player1"),new Joueur(2,"player2"));
+		String Player1=this.maquetteView.PlayerName("player1");
+		String Player2=this.maquetteView.PlayerName("player2");
+		
+		this.game=new Jeux(this,lengthMaquette,lengthMaquette,new Joueur(1,Player1),new Joueur(2,Player2));
 		int[][] maquette = this.game.initialiserMaquette();
 		return this.maquetteView.initGame(maquette);
 	}

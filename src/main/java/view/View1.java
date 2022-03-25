@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceDialog;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -40,24 +41,6 @@ public class View1 {
 					});
 			}
 		}
-		
-		/*BorderPane bp=new BorderPane();
-		bp.setCenter(this.maquette);
-		Joueur j[]=this.controller.getJoueurs();
-		FlowPane flow =new FlowPane();
-		FlowPane flow2 =new FlowPane();
-		Text j1= new Text(j[1].getName());
-		Text j2= new Text(j[2].getName());
-		Text score= new Text(j[1].getScore()+"-"+j[2].getScore());
-		flow.getChildren().add(j1);
-		flow.getChildren().add(j2);
-		
-		bp.setLeft(flow);
-		bp.setRight(flow2);
-		bp.setTop(score);
-		return bp;*/
-
-		
 	}
 	
 	public BorderPane initGame(int[][] maquette) {
@@ -185,6 +168,23 @@ private GridPane getScore() {
 	}
 	
 	
+	public String PlayerName(String who) {
+		TextInputDialog dialog = new TextInputDialog("");
+
+		dialog.setTitle("enter Name");
+		dialog.setHeaderText("Enter your name:");
+		dialog.setContentText("");
+
+		Optional<String> result = dialog.showAndWait();
+		if(result.isPresent()) {
+			return result.get();
+		}
+		
+		
+			return who;
+		
+		
+	}
 	
 	
 	
