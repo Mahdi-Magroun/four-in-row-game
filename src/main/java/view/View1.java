@@ -58,7 +58,7 @@ public class View1 {
 	public BorderPane initGame(int[][] maquette) {
 		this.init(maquette);
 		FlowPane[] joueur=this.setJoueurPanel(this.controller.getJoueurs());
-		Text score = this.getScore();
+		GridPane score = this.getScore();
 		this.allView.setCenter(this.maquette);
 		this.allView.setTop(score);
 		this.allView.setLeft(joueur[0]);
@@ -71,10 +71,19 @@ public class View1 {
 	}
 	
 	
-	private Text getScore() {
+	
+	
+private GridPane getScore() {
 		Joueur j[]=this.controller.getJoueurs();
 		Text score= new Text(j[1].getScore()+"-"+j[2].getScore());
-		return score;
+		GridPane g =new GridPane();
+		g.add(score, 0, 0);
+		Button btn=new Button("restart");
+		btn.setOnAction(event -> {
+			this.controller.restart();
+		});
+		g.add(btn, 0, 2);
+		return g;
 	}
 	
 	public  void setScore() {

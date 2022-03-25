@@ -36,6 +36,16 @@ public class Jeux {
 		}
 		return this.maquette;
 	}
+	public void restart() {
+		this.initialiserMaquette();
+		this.canIPlay=true;
+		this.whoPlay=1;
+		this.MaquetteRemplit=false;
+		
+	}
+	public int [][]getMaquette(){
+		return this.maquette;
+	}
 	
 	public int  play(int colone) {
 		//verifier si la partie n'est pas fini 

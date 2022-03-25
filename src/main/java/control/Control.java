@@ -50,7 +50,10 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 		return this.game.getUser();
 	}
 	
-	
+	public void restart() {
+		this.game.restart();
+		this.maquetteView.initGame(this.game.getMaquette());
+	}
 	
 	
 	
