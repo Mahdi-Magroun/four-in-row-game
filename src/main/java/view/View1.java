@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import control.Control;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -47,6 +48,7 @@ public class View1 {
 		this.init(maquette);
 		FlowPane[] joueur=this.setJoueurPanel(this.controller.getJoueurs());
 		GridPane score = this.getScore();
+		this.maquette.setAlignment(Pos.CENTER);
 		this.allView.setCenter(this.maquette);
 		this.allView.setTop(score);
 		this.allView.setLeft(joueur[0]);
@@ -71,6 +73,7 @@ private GridPane getScore() {
 			this.controller.restart();
 		});
 		g.add(btn, 0, 2);
+		g.setAlignment(Pos.TOP_CENTER);
 		return g;
 	}
 	
