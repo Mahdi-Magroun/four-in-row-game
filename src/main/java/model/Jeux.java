@@ -298,7 +298,9 @@ public class Jeux {
  }
  
  
- 
+ public Joueur[] getUser() {
+		return this.tabJoueur;
+	}
  
  
  

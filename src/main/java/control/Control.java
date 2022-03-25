@@ -30,7 +30,9 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 		int status=this.game.play(col);
 		if(status==1) {
 			this.maquetteView.changeButton(col,row2,player);
-			this.showWinner("olaa");
+			Joueur[] gg=this.game.getUser();
+			this.score(gg[player]);
+			this.showWinner(gg[player].getName());
 		}
 		else if(status==2) {
 			this.maquetteView.changeButton(col,row2,player);
@@ -44,7 +46,9 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 	}
 	
 	
-	
+	public Joueur[] getJoueurs() {
+		return this.game.getUser();
+	}
 	
 	
 	
@@ -60,5 +64,9 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 		
 	}
 	
+	public void score(Joueur j) {
+		j.setScore(j.getScore()+1);
+		
+	}
 	
 }
