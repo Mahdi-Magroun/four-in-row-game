@@ -20,7 +20,7 @@ public class View1 {
 		this.controller=controller;
 	}
 	public void init(int[][] maquette) {
-	//	this.maquette.minHeight(150);
+	//this.maquette.minHeight(150);
 		//this.maquette.minWidth(150);
 		for(int i=0;i<maquette.length;i++) {
 			for(int j=0;j<maquette[i].length;j++) {
