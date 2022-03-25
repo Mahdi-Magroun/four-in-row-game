@@ -1,10 +1,15 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import control.Control;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -140,4 +145,51 @@ private GridPane getScore() {
 		
 		
 	}
+	
+	
+	public int getLgMaquette() {
+		List<String> choices = new ArrayList<>();
+		choices.add("6*6");
+		choices.add("8*8");
+		choices.add("10*10");
+		choices.add("16*16");
+		choices.add("20*20");
+
+		ChoiceDialog<String> dialog = new ChoiceDialog<>("6*6", choices);
+		dialog.setTitle("Choice Dialog");
+		dialog.setHeaderText("Look, a Choice Dialog");
+		dialog.setContentText("Choose your letter:");
+
+		// Traditional way to get the response value.
+		Optional<String> result = dialog.showAndWait();
+		if (result.isPresent()){
+			switch(result.get()) {
+			case "6*6":
+				return 6;
+			case "8*8" :
+				return 8;
+			case "10*10":
+				return 10;			
+			case "16*16":
+				return 16;
+			case "20*20":
+			return 20;
+			
+					
+		}
+					
+		}
+			
+		
+		return 6;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
