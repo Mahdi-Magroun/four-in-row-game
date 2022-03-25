@@ -37,10 +37,6 @@ public class Jeux {
 		return this.maquette;
 	}
 	
-	
-	
-	
-	
 	public int  play(int colone) {
 		//verifier si la partie n'est pas fini 
 		
@@ -52,12 +48,14 @@ public class Jeux {
 			if(result==true) {
 				System.out.println("player : "+this.tabJoueur[this.whoPlay].getName());// be carful out of range
 				this.canIPlay=false;
+				this.controller.blockButton();
 				return 1;
 			}
 			else if(this.MaquetteRemplit==true) {
 			 // en cas d'egaliter
 				System.out.println("BRAVOOO vous ete fort tout les deux ");
 				this.canIPlay=false;
+				this.controller.blockButton();
 				return 2;
 			}
 			else
@@ -76,6 +74,7 @@ public class Jeux {
 	}
 			
 	}
+
 	
 	// identifier la lignie vide pour inserer la valeur de l'utulisateur 
 	public int identifierRowWhenColumIsValid(int colone) {
@@ -87,7 +86,7 @@ public class Jeux {
 		return this.lignie-1;
 	}
 	
-	// les methode de verification du coup 
+// les methode de verification du coup 
 	public boolean verif(int lignie,int colone) {
 		//verifier si la maquette et remplit 
 		this.MaquetteRemplit=this.maquetteStatus();
@@ -123,17 +122,7 @@ public class Jeux {
 	}
 
 	
-	/*
-	 * split verif method
-	 * verif horizentale droite
-	 * verif horizentale gauche
-	 * verif verticale
-	 * verif diagonale acendant
-	 * verif diagonale decendent 
-	 * ===> return : how many line are true 
-	 * **/
-	
-	// reste un peut de reglage pour les condition de la boucle for 
+	// change while loop to for loop in verif method's
 	
 	private int verifHorizentaleDroite(int lg,int col) {
 		int result=0;
@@ -173,7 +162,9 @@ public class Jeux {
 		}
 	
 	
-	private int verifVertical(int lg,int col) {
+	
+		
+		private int verifVertical(int lg,int col) {
 		int result=0;
 		for(int i=lg+1;i<=lg+this.numberOfAlignItem-1;i++) {
 			if(this.maquette[i][col]==this.whoPlay) {
@@ -189,6 +180,7 @@ public class Jeux {
 		int result=0;
 		int col=colone-1;
 		int row=lignie-1;
+		
 		while(row>=0&&col>=0) {
 			if(this.maquette[row][col]==this.whoPlay) {
 				result++;
@@ -273,18 +265,9 @@ public class Jeux {
 	
 		return result;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-//verifier si la maquette et pleinne 
- private boolean maquetteStatus() {
+	//verifier si la maquette et pleinne 
+	private boolean maquetteStatus() {
 	 for(int i=0;i<this.colone;i++) {
 		 if(this.maquette[0][i]==0) {
 			 return false;
@@ -295,15 +278,13 @@ public class Jeux {
 		return true;
  }
 
- 
- 
- // getter and setter 
- public boolean getCanIPlay() {
+	// getter and setter 
+	public boolean getCanIPlay() {
 	 return this.canIPlay;
  }
  
- // affichage de matrice 
- public void affiche() {
+	// affichage de matrice 
+	public void affiche() {
 	 for(int i = 0 ; i < this.lignie; i++ ){  
 	     for(int j = 0; j< this.colone; j++){   
 	         System.out.print(this.maquette[i][j]+"  "); 
@@ -311,9 +292,6 @@ public class Jeux {
 	System.out.println(); 
 	System.out.println(); 
 	}   } 
- 
- 
- 
  
  public int  getWhoPlay() {
 	 return this.whoPlay;

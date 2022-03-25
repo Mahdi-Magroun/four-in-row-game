@@ -18,12 +18,9 @@ private Jeux game =new Jeux(this,6,6,new Joueur(1,"mahdi"),new Joueur(2,"youssef
 	}
 	
 	
-	
-	
-	
-	
-	
-	
+	public void blockButton() {
+		this.maquetteView.blockButton();
+	}
 	
 	
 	public void  play(int col,int row) {

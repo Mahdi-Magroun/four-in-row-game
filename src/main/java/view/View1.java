@@ -1,6 +1,7 @@
 package view;
 
 import control.Control;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -50,7 +51,12 @@ public class View1 {
 	}
 	
 	
-	
+	public void blockButton() {
+		   for (Node bt:this.maquette.getChildren()) {
+			   bt.setDisable(true);
+			   
+		   }
+	}
 	
 	public GridPane getMaquette() {
 		return this.maquette;
