@@ -1,7 +1,7 @@
 package model;
 
-import control.Control;
-import view.View1;
+
+
 
 public class Jeux {
 
@@ -13,11 +13,10 @@ public class Jeux {
 	private int whoPlay=1;
 	private int numberOfAlignItem=4;
 	private boolean MaquetteRemplit=false;
-	private Control controller;
 	
 	
-	public Jeux(Control controller,int lignie,int colone,Joueur j1,Joueur j2) {
-		this.controller=controller;
+	public Jeux(int lignie,int colone,Joueur j1,Joueur j2) {
+		
 		this.lignie=lignie;
 		this.colone=colone;
 		this.maquette=new int [this.lignie][this.colone];
@@ -58,14 +57,12 @@ public class Jeux {
 			if(result==true) {
 				System.out.println("player : "+this.tabJoueur[this.whoPlay].getName());// be carful out of range
 				this.canIPlay=false;
-				this.controller.blockButton();
 				return 1;
 			}
 			else if(this.MaquetteRemplit==true) {
 			 // en cas d'egaliter
 				System.out.println("BRAVOOO vous ete fort tout les deux ");
 				this.canIPlay=false;
-				this.controller.blockButton();
 				return 2;
 			}
 			else

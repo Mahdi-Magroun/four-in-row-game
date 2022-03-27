@@ -17,7 +17,7 @@ private Jeux game ;
 		String Player1=this.maquetteView.PlayerName("player1");
 		String Player2=this.maquetteView.PlayerName("player2");
 		
-		this.game=new Jeux(this,lengthMaquette,lengthMaquette,new Joueur(1,Player1),new Joueur(2,Player2));
+		this.game=new Jeux(lengthMaquette,lengthMaquette,new Joueur(1,Player1),new Joueur(2,Player2));
 		int[][] maquette = this.game.initialiserMaquette();
 		return this.maquetteView.initGame(maquette);
 	}
@@ -38,10 +38,12 @@ private Jeux game ;
 			Joueur[] gg=this.game.getUser();
 			this.score(gg[player]);
 			this.showWinner(gg[player].getName());
+			this.blockButton();
 		}
 		else if(status==2) {
 			this.maquetteView.changeButton(col,row2,player);
 			this.egaliter();
+			this.blockButton();
 		}
 		else {
 			this.maquetteView.changeButton(col,row2,player);
